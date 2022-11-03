@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_02_143727) do
+ActiveRecord::Schema.define(version: 2022_11_02_154745) do
+
+  create_table "anniversaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "anniversary_name", null: false
+    t.date "anniversary_date", null: false
+    t.string "anniversary_description"
+    t.integer "category_id"
+    t.string "who_anniversary"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_anniversaries_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +38,5 @@ ActiveRecord::Schema.define(version: 2022_11_02_143727) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "anniversaries", "users"
 end
