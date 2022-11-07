@@ -1,1 +1,17 @@
-TopPage
+<%= render "shared/header" %>
+
+<div class="hero-warapper">
+    <div class="hero-image">
+      <%= image_tag "top.jpg", class:"top-image" %>
+    </div>
+    <div class="hero-message">
+        <h1 class="display-1 fw-light secondary text-white">Anniversary</h1>
+        <p class="lead text-light">この世に生まれたあの日から、毎日が特別な記念日<br>大切な毎日をAnniversaryで</p>
+        <p>
+          <%= link_to "Log in", new_user_session_path, class: "btn btn-light" %>
+          <%= link_to "Sign in", new_user_registration_path, class: "btn btn-secondary" %> 
+        </p>
+    </div>
+</div>
+
+<%= render "shared/footer" %>

@@ -1,0 +1,21 @@
+<%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class="bg-light">
+ <div class="header-warapper">
+    <div class="logo">
+      <%= link_to "Anniversary", root_path%>
+    </div>
+
+  <% if user_signed_in? %>
+    <div class="right-nav">
+      <%= link_to "記念日を登録する", new_anniversary_path %>
+      <%= link_to current_user.nickname, "#"%>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-secondary" %>
+    </div>
+  <% else %>
+    <div class="right-nav">
+      <%= link_to "Log in", new_user_session_path, class: "btn btn-secondary" %>
+      <%= link_to "Sign in", new_user_registration_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+  </div>
+</header>
