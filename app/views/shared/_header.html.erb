@@ -1,5 +1,5 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
-<header class="bg-light">
+<header class="bg-light border-bottom sticky-top">
  <div class="header-warapper">
     <div class="logo">
       <%= link_to "Anniversary", root_path%>
@@ -7,15 +7,20 @@
 
   <% if user_signed_in? %>
     <div class="right-nav">
+      <%= link_to "All Anniversary", all_anniversaries_path %>
+      <%= link_to "マイページへのリンク", user_path(current_user.id) %>
+      <%= link_to "マイリストへのリンク", user_lists_path(current_user.id) %>
       <%= link_to "記念日を登録する", new_anniversary_path %>
-      <%= link_to current_user.nickname, "#"%>
+      <%= link_to current_user.nickname, user_path(current_user.id)%>
       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-secondary" %>
     </div>
   <% else %>
     <div class="right-nav">
+      <%= link_to "All Anniversary", all_anniversaries_path %>
       <%= link_to "Log in", new_user_session_path, class: "btn btn-secondary" %>
       <%= link_to "Sign in", new_user_registration_path, class: "btn btn-secondary" %>
     </div>
   <% end %>
   </div>
+  
 </header>

@@ -5,7 +5,7 @@
       <%= image_tag "top.jpg", class:"top-image" %>
     </div>
     <div class="hero-message">
-        <h1 class="display-1 fw-light secondary text-white">Anniversary</h1>
+        <h1 class="display-1 text-white" style="font-family: 'Libre Baskerville', serif;">Anniversary</h1>
         <p class="lead text-light">この世に生まれたあの日から、毎日が特別な記念日<br>大切な毎日をAnniversaryで</p>
         <p>
           <%= link_to "Log in", new_user_session_path, class: "btn btn-light" %>
@@ -13,5 +13,32 @@
         </p>
     </div>
 </div>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <% @anniversaries.each do |anniversary| %>
+        <div class="col">
+          <div class="card shadow-sm">
+             <%= image_tag anniversary.image, class:"img-fluid"%>
+            <div class="card-body">
+              <p class="card-text"><%= "#{anniversary.anniversary_date} | #{anniversary.anniversary_name}" %></p>
+
+              <p class="card-text"><%= anniversary.anniversary_description %></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "View", anniversary_path(anniversary.id) %></button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 
 <%= render "shared/footer" %>

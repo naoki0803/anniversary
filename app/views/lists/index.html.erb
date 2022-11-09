@@ -1,0 +1,39 @@
+<div class="maim-warapper">
+
+  <%= render "shared/side_nav" %>
+
+  <div class="main-contents">
+
+    <%# リスト %>
+    <div class="container">
+      <table class="table">
+        <caption>ブレークポイント</caption>
+        <thead>
+          <tr>
+            <th>Anniversary Name</th>
+            <th>date</th>
+            <th>Next Anniversary</th>
+            <th>Countdown</th>
+            <th>通知設定</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <% @anniversaries.each do |anniversary| %>
+          <tr>
+            <td><%= anniversary.anniversary_name %></td>
+            <td><%= anniversary.anniversary_date %></td>
+            <td><%= "100日後" %></td>
+            <td><%= "#{(anniversary.anniversary_date.next_day(100) - @today).to_i}日" %></td>
+            <td><button type="button" class="btn btn-primary">On</button> <button type="button" class="btn btn-secondary">Off</button></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%# リストここまで %>
+  
+  </div>
+</div>
+
+
