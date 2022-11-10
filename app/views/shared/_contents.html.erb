@@ -47,11 +47,13 @@
             
             <div class="card-footer-bottom d-flex align-items-center justify-content-between">
               <div class="category">Category：<%= anniversary.category.name %></div>
-              <div class="favorite">♡：1,000</div>
+              <div id = "like_<%= anniversary.id %>">
+                <%= render partial: "likes/like", locals: { anniversary: anniversary } %>
+              </div>
             </div>
           </div>
         </div>
-      </div>    
+      </div>
     </div>
   <% end %>
 </div>

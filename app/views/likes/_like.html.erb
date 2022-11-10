@@ -1,0 +1,15 @@
+<% if !user_signed_in? %>
+  <i class="fa fa-heart like-btn"></i>
+  <%= anniversary.likes.length %>
+  
+<% elsif current_user.liked_by?(anniversary.id) %>
+  <%= link_to anniversary_like_path(anniversary, anniversary.likes), class: "like-link", method: :delete, remote: true do %>
+    <i class="fa fa-heart unlike-btn"></i>
+  <% end %>
+  <%= anniversary.likes.length %>
+<% else %>
+  <%= link_to anniversary_likes_path(anniversary), class: "like-link", method: :post, remote: true do %>
+    <i class="fa fa-heart like-btn"></i>
+  <% end %>
+  <%= anniversary.likes.length %>
+<% end %>

@@ -6,4 +6,12 @@ class User < ApplicationRecord
   
   has_many :anniversaries
   has_many :comments
+
+  has_many :likes, dependent: :destroy
+  has_many :liked_anniversaries, through: :likes, source: :anniversary
+
+  def liked_by?(anniversary_id)
+    likes.where(anniversary_id: anniversary_id).exists?
+  end
+
 end

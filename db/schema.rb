@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_09_133924) do
+ActiveRecord::Schema.define(version: 2022_11_10_012427) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(version: 2022_11_09_133924) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "anniversary_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["anniversary_id"], name: "index_likes_on_anniversary_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -74,4 +83,6 @@ ActiveRecord::Schema.define(version: 2022_11_09_133924) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "anniversaries", "users"
+  add_foreign_key "likes", "anniversaries"
+  add_foreign_key "likes", "users"
 end

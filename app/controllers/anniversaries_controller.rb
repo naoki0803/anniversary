@@ -9,7 +9,7 @@ class AnniversariesController < ApplicationController
   def all
     @anniversaries = Anniversary.includes(:user).order("created_at DESC")
     @comment = Comment.new
-
+    # @commentいらない
   end
 
   def new
