@@ -4,12 +4,18 @@
 
 html{
   width: 100%;
+  font-size: 90%;
 }
 
+a {
+  text-decoration: none;
+
+
+}
 /*----------------------------------------
   header
 ----------------------------------------*/
-.header-warapper{
+.header-wrapper{
   height: 60px;
   padding: 0 80px;
   display: flex;
@@ -17,7 +23,7 @@ html{
   justify-content: space-between;
 }
 
-.header-warapper h1{
+.header-wrapper h1{
   margin-bottom: 0;
 }
 
@@ -25,7 +31,7 @@ html{
 .logo a{
   font-family: 'Libre Baskerville', serif;
   text-decoration: none; 
-  color: rgb(54, 54, 54);
+  color: #24292e;
   font-size: 38px;
 }
 
@@ -33,11 +39,24 @@ html{
   color: black;
 }
 
+.header-nav{
+  font-family: 'Libre Baskerville', serif;
+  text-decoration: none; 
+  color: #24292e;
+  transition: all 0.3s;
+}
+
+.header-nav:hover{
+  text-decoration: none; 
+  color: #24292e;
+  opacity: 0.6;
+
+}
 
 /*----------------------------------------
   index
 ----------------------------------------*/
-.hero-warapper{
+.hero-wrapper{
   width: 100vw;
   height: calc(100vh - 60px - 60px);
   position: relative;
@@ -47,6 +66,7 @@ html{
   position: absolute;
   width: 100%;
   height: 100%;
+  opacity: 0.8;
 }
 
 
@@ -63,7 +83,7 @@ html{
 /*----------------------------------------
   SignUp
 ----------------------------------------*/
-.new-warapper{
+.new-wrapper{
   background-color: #ecebeb;
   display: flex;
   justify-content: center;    /* 左右 */
@@ -187,9 +207,9 @@ html{
 
 
 /*----------------------------------------
-  anniversary New
+  Session New
 ----------------------------------------*/
-.form-warapper{
+.form-wrapper{
 
   position: relative;
   position: absolute;
@@ -197,13 +217,12 @@ html{
 
 
 /*----------------------------------------
-  My Page
+   contents /  content
 ----------------------------------------*/
 
-.maim-warapper{
+.maim-wrapper{
   display: flex;
 }
-
 
 
 .side-nav-logo{
@@ -211,15 +230,58 @@ html{
 }
 
 .main-contents{
-  width: 100%;
+  width: calc(100% - 280px);
   height: 100vh;
   overflow: scroll;
 }
 
-// .card-footer{
-//   font-size: 13px;
-// }
+.card-title{
+  font-size: 1.1rem;
+}
 
+
+.card-footer-bottom,.card-footer-top {
+  font-size: 0.8rem;
+}
+
+
+
+tr th {
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+
+tbody tr {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.card-title a{
+  text-decoration: none;
+  color: #24292e;
+
+}
+
+.card-title a:hover{
+  text-decoration: none;
+  color: #24292e;
+  opacity: 0.6;
+  transition: 0.4s;
+  position: relative;
+}
+
+.wrapper {
+  width: 100%; height: 440px;
+  max-width: 1000px;
+
+}
+
+// .wrapper :hover{
+//   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .2);
+//   transition: 0.3s;
+// }
 
 /*----------------------------------------
   Likeボタン

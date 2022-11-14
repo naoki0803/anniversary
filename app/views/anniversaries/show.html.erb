@@ -1,75 +1,66 @@
-<div class="maim-warapper">
+<div class="maim-wrapper">
 
   <%= render "shared/side_nav" %>
-  
+
   <div class="main-contents">
+
     <%# カード本体 %>
-    <div class="card my-3 mx-5" style="width: 80%; height: 440px;">
-      <%# カードヘッダー %>
-      <div class="row g-0" style="height: 10%;">
-        <div class="col-md-12 border-bottom card-header d-flex align-items-center justify-content-between">
-        
-          <div class="left d-flex align-items-center">
-            <h6 class="card-title me-2"><%= @anniversary.anniversary_date %> </h6>
-            <h4 class="card-title"><%= @anniversary.anniversary_name %> </h4>
-          </div>
-
-          <div class="right">
-            <%= link_to @anniversary.user.nickname, user_path(@anniversary.user.id)%>
-            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-          </div>
-        
-        </div> 
-      </div>
-      
-      <%# カードメイン %>
-      <div class="row g-0 overflow-auto" style="width: 100%; height: 100%;">
-        
-        <%# 画像全体 col-8で横のグリッドを指定 %>
-        <div class="col-md-8" style="max-width: 800px; height: auto;">
-          <div class="row">
-            <%= image_tag @anniversary.image, class:"img-fluid"%>
-          </div>
+    <div class="wrapper">
+      <div class="card my-3 m-auto w-75" style="max-width: 1000px; height: 440px;">
+        <%# カードヘッダー %>
+        <div class="row g-0" style="height: 15%;">
+          <div class="col-md-12 border-bottom card-header d-flex align-items-center justify-content-between">
           
+            <div class="left d-flex align-items-center">
+              <h6 class="card-title me-3"><%= @anniversary.anniversary_date %>　| </h6>
+              
+              <h4 class="card-title link-dark"><%= link_to @anniversary.anniversary_name, "#" %> </h4>
+            </div>
+
+            <div class="right">
+              <%= link_to @anniversary.user.nickname, user_path(@anniversary.user.id)%>
+              <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            </div>
+          
+          </div> 
         </div>
-
-        <%# 詳細欄といいねとかの欄%>
-        <div class="col-md-4" style="max-width: 800px; height: 100%;">
-
-          <div class="card-body overflow-scroll" style="height: 85%">
-            <p class="card-text"><%= @anniversary.anniversary_description %></p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        
+        <%# カードメイン %>
+        <div class="row g-0 overflow-scroll" style="width: 100%; height: 100%;">
+          
+          <%# 画像全体 col-8で横のグリッドを指定 %>
+          <div class="col-md-8 " style="max-width: 511px; ">
+            <%= image_tag @anniversary.image, class:"img-fluid ", style:"object-fit: cover;"%>
           </div>
 
-          <div class="card-footer bg-transparent border-success" style="height: 15%;">
-            <div class="card-footer-top d-flex align-items-center justify-content-between">
-              <div class="data">Post：<%= @anniversary.created_at.strftime('%Y/%m/%d') %></div>
-              <div class="who">Who：<%= @anniversary.who_anniversary %></div>
+          <%# 詳細欄といいねとかの欄%>
+          <div class="col-md-4" style="max-width: 800px; height: auto;">
+            <div class="card-body" style="height: 75%">
+              <p class="card-text overflow-auto"><%= @anniversary.anniversary_description %></p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
-            
-            <div class="card-footer-bottom d-flex align-items-center justify-content-between">
-              <div class="category">Category：<%= @anniversary.category.name %></div>
-              <div class="favorite">♡：1,000</div>
+
+            <div class="card-footer bg-transparent border-success" style="height: 15%;">
+              <div class="card-footer-top d-flex align-items-center flex-column">
+                <div class="data">Post：<%= @anniversary.created_at.strftime('%Y/%m/%d') %></div>
+                <div class="who">Who：<%= @anniversary.who_anniversary %></div>
+                <div class="category">Category：<%= @anniversary.category.name %></div>
+                <div id = "like_<%= @anniversary.id %>">
+                  <%= render partial: "likes/like", locals: { anniversary: @anniversary } %>
+                </div>
+              </div>
+              
+              <div class="card-footer-bottom d-flex align-items-center justify-content-between">
+
+              </div>
             </div>
           </div>
         </div>
-      </div>    
-    </div>
-    
-    <%= form_with(model: [@anniversary, @comment], local: true) do |form| %>
-      <div class="container">      
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%= form.submit "SEND" %>
       </div>
-    <% end %>
+    </div>
 
-    <ul class="comments_lists">
-      <% @comments.each do |comment| %>
-        <li class="comments_list">
-          <%= comment.text %>
-        </li>  
-        <% end %>
-    </ul>
+    <%= render "shared/comment" %>
+
   </div>
 </div>
 

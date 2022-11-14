@@ -1,25 +1,29 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class="bg-light border-bottom sticky-top">
- <div class="header-warapper">
+ <div class="header-wrapper">
     <div class="logo">
       <%= link_to "Anniversary", root_path%>
     </div>
 
-  <% if user_signed_in? %>
-    <div class="right-nav">
-      <%= link_to "All Anniversary", all_anniversaries_path %>
-      <%= link_to "マイページへのリンク", user_path(current_user.id) %>
-      <%= link_to "マイリストへのリンク", user_lists_path(current_user.id) %>
-      <%= link_to "記念日を登録する", new_anniversary_path %>
-      <%= link_to current_user.nickname, user_path(current_user.id)%>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-secondary" %>
+    <% if user_signed_in? %>        
+    <div>
+      <ul class="d-flex container align-items-center mt-3">
+        <li><%= link_to "All contents", all_anniversaries_path, class:"header-nav  me-3 h5" %></li>
+        <p class="d-inline mt-2"> |　</p>  
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "header-nav h5" %></li>
+      </ul>
     </div>
-  <% else %>
-    <div class="right-nav">
-      <%= link_to "All Anniversary", all_anniversaries_path %>
-      <%= link_to "Log in", new_user_session_path, class: "btn btn-secondary" %>
-      <%= link_to "Sign in", new_user_registration_path, class: "btn btn-secondary" %>
+
+    <% else %>
+    <div>
+      <ul class="d-flex container align-items-center mt-3">
+        <li><%= link_to "All contents", all_anniversaries_path, class:"header-nav  me-3 h5" %></li>
+        <p class="d-inline mt-2"> |　</p>  
+        <li><%= link_to "Log in", new_user_session_path, class: "header-nav  me-2 h5" %></li>　
+        <li><%= link_to "Sign up", new_user_registration_path, class: "header-nav h5" %></li>
+      </ul>
     </div>
+    
   <% end %>
   </div>
   
