@@ -9,7 +9,7 @@ require("channels")
 require('jquery')
 
 import "bootstrap"
-import "../stylesheets/application"
+import "../stylesheets/application.scss"
 
 import '@fortawesome/fontawesome-free/js/all'
 import '../css/application.scss'
