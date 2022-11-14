@@ -8,7 +8,7 @@ require("@rails/activestorage").start()
 require("channels")
 require('jquery')
 
-// import "bootstrap"
+import "bootstrap"
 import "../stylesheets/application"
 
 import '@fortawesome/fontawesome-free/js/all'
