@@ -55,7 +55,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'pg'
+  gem 'unicorn', '5.4.1'
 end
+
 gem 'pry-rails'
 
 gem 'devise'
@@ -66,3 +68,5 @@ gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 
 gem 'jquery-rails'
+
+gem "aws-sdk-s3", require: false
