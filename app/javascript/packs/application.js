@@ -10,7 +10,7 @@ require('jquery')
 require("test.js")
 
 import "bootstrap"
-import "../stylesheets/application.scss"
+import "../stylesheets/application"
 
 import '@fortawesome/fontawesome-free/js/all'
 import '../css/application.scss'
