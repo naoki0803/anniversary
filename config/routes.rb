@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "anniversaries#index"
   resources :anniversaries, only: [:index, :new, :create, :show]do
-    resources :comments, only: :create
+    resources :comments, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
     collection do
       get 'all'

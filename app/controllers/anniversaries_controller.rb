@@ -1,6 +1,8 @@
 class AnniversariesController < ApplicationController
-
   require 'date'
+
+  before_action :authenticate_user!, except: [:index, :show]
+  
 
   def index
     @anniversaries = Anniversary.all
