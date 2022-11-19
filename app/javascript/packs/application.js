@@ -7,22 +7,22 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 
-require('jquery')
+// require('jquery')ここ
 require("test.js")
 
 
-import "bootstrap"
-import "../stylesheets/application"
+// import "bootstrap"
+// import "../stylesheets/application"
 
 import '@fortawesome/fontawesome-free/js/all'
 import '../css/application.scss'
 
 
-import jquery from "jquery"
-window.$ = window.jQuery = jquery
-import * as bootstrap from "bootstrap"
-window.bootstrap = bootstrap
-import "../stylesheets/application"
+// import jquery from "jquery"
+// window.$ = window.jQuery = jquery
+// import * as bootstrap from "bootstrap"
+// window.bootstrap = bootstrap
+// import "../stylesheets/application"
 
 
 
