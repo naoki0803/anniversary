@@ -8,6 +8,8 @@
     <% if user_signed_in? %>        
     <div>
       <ul class="d-flex container align-items-center mt-3">
+        <li><%= link_to "Create", new_anniversary_path, class:"header-nav  me-3 h5" %></li>
+        <p class="d-inline mt-2"> |　</p> 
         <li><%= link_to "All contents", all_anniversaries_path, class:"header-nav  me-3 h5" %></li>
         <p class="d-inline mt-2"> |　</p>  
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "header-nav h5" %></li>
