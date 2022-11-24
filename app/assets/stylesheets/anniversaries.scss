@@ -6,14 +6,9 @@
 
 html{
   width: 100%;
-  font-size: 90%;
+  font-size: 100%;
 }
 
-a {
-  text-decoration: none;
-
-
-}
 /*----------------------------------------
   header
 ----------------------------------------*/
@@ -222,29 +217,20 @@ a {
    contents /  content
 ----------------------------------------*/
 
-.maim-wrapper{
-  display: flex;
-}
-
 
 .side-nav-logo{
   font-family: 'Libre Baskerville', serif;
 }
 
-.main-contents{
-  width: calc(100% - 280px);
-  height: 100vh;
-  overflow: scroll;
-}
 
-.card-title{
-  font-size: 1.1rem;
-}
+// .card-title{
+//   font-size: 1.1rem;
+// }
 
 
-.card-footer-bottom,.card-footer-top {
-  font-size: 0.8rem;
-}
+// .card-footer-bottom,.card-footer-top {
+//   font-size: 0.8rem;
+// }
 
 
 
@@ -260,25 +246,25 @@ tbody tr {
   text-align: center;
 }
 
-.card-title a{
-  text-decoration: none;
-  color: #24292e;
+// .card-title a{
+//   text-decoration: none;
+//   color: #24292e;
 
-}
+// }
 
-.card-title a:hover{
-  text-decoration: none;
-  color: #24292e;
-  opacity: 0.6;
-  transition: 0.4s;
-  position: relative;
-}
+// .card-title a:hover{
+//   text-decoration: none;
+//   color: #24292e;
+//   opacity: 0.6;
+//   transition: 0.4s;
+//   position: relative;
+// }
 
-.wrapper {
-  width: 100%; height: 440px;
-  max-width: 1000px;
+// .wrapper {
+//   width: 100%; height: 440px;
 
-}
+
+// }
 
 // .wrapper :hover{
 //   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .2);

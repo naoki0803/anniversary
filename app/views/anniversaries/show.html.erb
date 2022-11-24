@@ -1,66 +1,81 @@
-<div class="maim-wrapper">
+<div class="container-fluid">
+  <div class="row">
 
-  <%= render "shared/side_nav" %>
+    <div class="col-2 sticky-top vh-100 p-0">
+     <%= render "shared/side_nav" %>
+    </div>
 
-  <div class="main-contents">
+    <div class="col-10">
 
-    <%# カード本体 %>
-    <div class="wrapper">
-      <div class="card my-3 m-auto w-75" style="max-width: 1000px; height: 440px;">
+      <%# カード本体 %>
+      <div class="container my-3 m-auto w-75 border" style="max-height: 500px;">
+
         <%# カードヘッダー %>
-        <div class="row g-0" style="height: 15%;">
-          <div class="col-md-12 border-bottom card-header d-flex align-items-center justify-content-between">
+        <div class="row" style="height: 10%;">
+          <div class="col-12 bg-light border-bottom card-header d-flex align-items-center justify-content-between px-3 py-2">
           
             <div class="left d-flex align-items-center">
-              <h6 class="card-title me-3"><%= @anniversary.anniversary_date %>　| </h6>
-              
-              <h4 class="card-title link-dark"><%= link_to @anniversary.anniversary_name, "#" %> </h4>
+              <div class="me-3 fs-6 "> <%= "#{@anniversary.anniversary_date}　|" %> </div>
+              <div class="fs-6 fw-bold"><%= @anniversary.anniversary_name %> </div>
             </div>
 
             <div class="right">
-              <%= link_to @anniversary.user.nickname, user_path(@anniversary.user.id)%>
+              <%= link_to @anniversary.user.nickname, user_path(@anniversary.user.id), class:"link-dark"%>
               <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
             </div>
-          
-          </div> 
+          </div>
         </div>
-        
+
         <%# カードメイン %>
-        <div class="row g-0 overflow-scroll" style="width: 100%; height: 100%;">
-          
+        <div class="row overflow-scroll" style="max-height: calc(500px - 50px);">
+        
           <%# 画像全体 col-8で横のグリッドを指定 %>
-          <div class="col-md-8 " style="max-width: 511px; ">
-            <%= image_tag @anniversary.image, class:"img-fluid ", style:"object-fit: cover;"%>
+          <div class="col-8 px-0">
+            <%= image_tag @anniversary.image, class:"img-fluid"%>
           </div>
 
-          <%# 詳細欄といいねとかの欄%>
-          <div class="col-md-4" style="max-width: 800px; height: auto;">
-            <div class="card-body" style="height: 75%">
-              <p class="card-text overflow-auto"><%= @anniversary.anniversary_description %></p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
+          <%# 詳細欄 & いいねとかの欄%>
+          <div class="col-4 px-0 sticky-top" style="max-height: calc(500px - 50px);">
 
-            <div class="card-footer bg-transparent border-success" style="height: 15%;">
-              <div class="card-footer-top d-flex align-items-center flex-column">
-                <div class="data">Post：<%= @anniversary.created_at.strftime('%Y/%m/%d') %></div>
-                <div class="who">Who：<%= @anniversary.who_anniversary %></div>
-                <div class="category">Category：<%= @anniversary.category.name %></div>
-                <div id = "like_<%= @anniversary.id %>">
-                  <%= render partial: "likes/like", locals: { anniversary: @anniversary } %>
+            <div class="container h-100">
+              <div class="row h-100">
+
+                <%# 詳細欄 %>
+                <div class="col-12 border-bottom h-75">
+                  <p class="fs-6"><%= @anniversary.anniversary_description %></p>
+                  <p class=""><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
-              </div>
-              
-              <div class="card-footer-bottom d-flex align-items-center justify-content-between">
+
+                <%# いいね %>
+                <div class="d-flex col-12 h-25 w-100 fw-light align-items-center" style="min-height:100px;">
+                  <div class="d-flex align-items-center justify-content-center px-2 me-2  " id = "like_<%= @anniversary.id %>">
+                    <%= render partial: "likes/like", locals: { anniversary: @anniversary } %>
+                  </div>
+                  <div>
+                    <ul class="m-0 px-1 border-start">
+                      <li><small class="data m-0"> Post：<%= @anniversary.created_at.strftime('%Y/%m/%d') %></small></li>
+                      <li><small class="who"> Who：<%= @anniversary.who_anniversary %></small></li>
+                      <li><small class="category"> Category：<%= @anniversary.category.name %></small></li>
+                    </ul>
+                  </div>
+                </div>
 
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <%# コメント　メインのcal10の中 %>
+      <div class="container my-3 m-auto w-75 border">
+        <div class="row">
+          <div class="col-12 px-3 py-2">
+            <%= render "shared/comment" %>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <%= render "shared/comment" %>
-
   </div>
 </div>
 
