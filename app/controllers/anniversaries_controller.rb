@@ -30,18 +30,18 @@ class AnniversariesController < ApplicationController
   def show
     @anniversary = Anniversary.find(params[:id])
     @comment = Comment.new
-    @comments = @anniversary.comments.includes(:user)
+    @comments = @anniversary.comments.includes(:user).order("created_at DESC")
 
-    @after_100day = @anniversary.created_at.next_day(2)
+    # @after_100day = @anniversary.created_at.next_day(2)
     
-    @today = Time.current 
+    # @today = Time.current 
 
-    @countdown = (@after_100day - @today).to_i
+    # @countdown = (@after_100day - @today).to_i
 
-    @countdown_sec = (@after_100day - @today).to_i
-    @countdown_min = (@after_100day - @today).to_i / 60
-    @countdown_hour = (@after_100day - @today).to_i / 60 / 60 % 24
-    @countdown_day = (@after_100day - @today).to_i / 60 / 60 / 24
+    # @countdown_sec = (@after_100day - @today).to_i
+    # @countdown_min = (@after_100day - @today).to_i / 60
+    # @countdown_hour = (@after_100day - @today).to_i / 60 / 60 % 24
+    # @countdown_day = (@after_100day - @today).to_i / 60 / 60 / 24
   end
 
   private

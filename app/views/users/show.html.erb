@@ -1,9 +1,15 @@
-<div class="maim-wrapper">
+<div class="container-fluid">
+  <div class="row">
 
-  <%= render "shared/side_nav" %>
+    <div class="col-2 sticky-top vh-100">
+     <%= render "shared/side_nav" %>
+    </div>
 
-  <%= render "shared/contents" %>
-
+    <div class="col-10">
+      <%= render "shared/contents" %>
+    </div>
+    
+  </div>
 </div>
 
 

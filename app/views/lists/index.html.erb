@@ -1,54 +1,57 @@
-<div class="maim-wrapper">
+<div class="container-fluid">
+  <div class="row">
 
-  <%= render "shared/side_nav" %>
-
-  <div class="main-contents container">
-
-    <%# リスト %>
-    <div class="container">
-      <table class="table">
-        <caption>ブレークポイント</caption>
-        <thead>
-          <tr class="column">
-            <th></th>
-            <th>誰の</th>
-            <th>記念日名</th>
-            <th>日付</th>
-            <th>経過日数</th>
-            <th>次の記念日名</th>
-            <th>次の記念日の日付<br>残日数</th>
-            <th>通知設定</th>
-          </tr>
-        </thead>
-
-        <tbody>
-        <% @anniversaries.each do |anniversary| %>
-          <tr>
-            <td><%= image_tag anniversary.image, style:"width: 200px; height: 120px; object-fit: cover;"%></td>
-          <%# 誰 %>
-            <td><%= anniversary.who_anniversary %></td>
-          <%# 記念日名 %>
-            <td><%= anniversary.anniversary_name %></td>
-          <%# 日付 %>
-            <td><%= anniversary.anniversary_date %></td>
-          <%# 記念日から何日 %>
-            <td><%= "#{(@today - anniversary.anniversary_date.next_day(0)).to_i}日"  %></td>
-          <%# 次の記念日名 %>
-            <td><%= "100日記念" %></td>
-            <td>
-              <%= (anniversary.anniversary_date.next_day(2000)) %>
-              <br>
-              <%= "残り#{(anniversary.anniversary_date.next_day(1000) - @today).to_i}日" %>
-            </td>
-          <%# 通知設定 %>
-            <td><button type="button" class="btn btn-primary">On</button> <button type="button" class="btn btn-secondary">Off</button></td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
+    <div class="col-2 sticky-top vh-100">
+     <%= render "shared/side_nav" %>
     </div>
-    <%# リストここまで %>
-  
+
+    <div class="col-">
+
+      <%# リスト %>
+      <div class="container">
+        <table class="table">
+          <caption>ブレークポイント</caption>
+          <thead>
+            <tr class="column">
+              <th></th>
+              <th>誰の</th>
+              <th>記念日名</th>
+              <th>日付</th>
+              <th>経過日数</th>
+              <th>次の記念日名</th>
+              <th>次の記念日の日付<br>残日数</th>
+              <th>通知設定</th>
+            </tr>
+          </thead>
+
+          <tbody>
+          <% @anniversaries.each do |anniversary| %>
+            <tr>
+              <td><%= image_tag anniversary.image, style:"width: 200px; height: 120px; object-fit: cover;"%></td>
+            <%# 誰 %>
+              <td><%= anniversary.who_anniversary %></td>
+            <%# 記念日名 %>
+              <td><%= anniversary.anniversary_name %></td>
+            <%# 日付 %>
+              <td><%= anniversary.anniversary_date %></td>
+            <%# 記念日から何日 %>
+              <td><%= "#{(@today - anniversary.anniversary_date.next_day(0)).to_i}日"  %></td>
+            <%# 次の記念日名 %>
+              <td><%= "100日記念" %></td>
+              <td>
+                <%= (anniversary.anniversary_date.next_day(2000)) %>
+                <br>
+                <%= "残り#{(anniversary.anniversary_date.next_day(1000) - @today).to_i}日" %>
+              </td>
+            <%# 通知設定 %>
+              <td><button type="button" class="btn btn-primary">On</button> <button type="button" class="btn btn-secondary">Off</button></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+      <%# リストここまで %>
+    </div>
   </div>
 </div>
 

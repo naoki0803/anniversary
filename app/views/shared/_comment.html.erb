@@ -1,14 +1,23 @@
     <%= form_with(model: [@anniversary, @comment], local: true) do |form| %>
-      <div class="container">      
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%= form.submit "SEND" %>
-      </div>
+
+      <% if user_signed_in?%>
+        <div class="d-flex  w-100">
+          <%= form.text_field :text, class:"form-control me-3 w-75", placeholder: "" %>
+          <%= form.submit "コメントする", class:"btn btn-primary w-25" %>
+        </div>
+      <% else %>
+        <div class="d-flex w-100">
+          <%= form.text_field :text, class:"form-control me-3 w-75", placeholder: "コメントの投稿はLog inが必要です"%>
+          <%= link_to "Log in", new_user_session_path, class: "w-25 btn btn-primary" %>
+        </div>
+      <% end %>
     <% end %>
 
-    <ul class="comments_lists">
+    <ul class="">
       <% @comments.each do |comment| %>
-        <li class="comments_list">
+        <li class="pt-1">
+          <%= link_to comment.user.nickname, user_path(comment.user_id), class:"me-2 link-dark" %>
           <%= comment.text %>
-        </li>  
+        </li>
         <% end %>
     </ul>
