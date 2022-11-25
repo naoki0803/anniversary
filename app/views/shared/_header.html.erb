@@ -1,32 +1,67 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class="bg-light border-bottom sticky-top">
- <div class="header-wrapper">
-    <div class="logo">
-      <%= link_to "Anniversary", root_path%>
-    </div>
 
-    <% if user_signed_in? %>        
-    <div>
-      <ul class="d-flex container align-items-center mt-3">
-        <li><%= link_to "Create", new_anniversary_path, class:"header-nav  me-3 h5" %></li>
-        <p class="d-inline mt-2"> |　</p> 
-        <li><%= link_to "All contents", all_anniversaries_path, class:"header-nav  me-3 h5" %></li>
-        <p class="d-inline mt-2"> |　</p>  
-        <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "header-nav h5" %></li>
-      </ul>
-    </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <div class="logo">
+        <%= link_to "Anniversary", root_path%>
+      </div>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <% if user_signed_in? %>     
+          <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+            <li class="nav-item nav-link">
+              <%= link_to "Home", user_path(current_user.id), class:"header-nav  me-3 h5" %>
+            </li>
 
-    <% else %>
-    <div>
-      <ul class="d-flex container align-items-center mt-3">
-        <li><%= link_to "All contents", all_anniversaries_path, class:"header-nav  me-3 h5" %></li>
-        <p class="d-inline mt-2"> |　</p>  
-        <li><%= link_to "Log in", new_user_session_path, class: "header-nav  me-2 h5" %></li>　
-        <li><%= link_to "Sign up", new_user_registration_path, class: "header-nav h5" %></li>
-      </ul>
+            <li class="nav-link nav-item">
+              <%= link_to "All", all_anniversaries_path, class:"header-nav  me-3 h5" %>
+            </li>
+
+            <li class="nav-link nav-item">
+              <%= link_to "List", user_lists_path(current_user.id), class:"header-nav  me-3 h5" %>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle header-nav" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Menu
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><%= link_to "Create", new_anniversary_path, class:"dropdown-item" %></li>
+                  <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+              </ul>
+            </li>
+          </ul>
+
+        <%else %>
+          <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+            <li class="nav-link nav-item">
+              <%= link_to "All contents", all_anniversaries_path, class:"header-nav  me-3 h5" %>
+              <p class="d-inline mt-2"> |</p>  
+            </li>
+
+            <li class="nav-link nav-item">
+              <%= link_to "Log in", new_user_session_path, class: "header-nav  me-2 h5" %>
+              <p class="d-inline mt-2"> |</p>  
+            </li>
+
+            <li class="nav-link nav-item">
+              <%= link_to "Sign up", new_user_registration_path, class: "header-nav h5" %>
+            </li>
+
+          </ul>
+          <%end %>
+        
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-secondary" type="submit">Search</button>
+        </form>
+      </div>
     </div>
-    
-  <% end %>
-  </div>
-  
+  </nav>
+
 </header>
