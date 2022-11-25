@@ -26,6 +26,7 @@
       <% @anniversaries.each do |anniversary| %>
         <div class="col">
           <div class="card shadow-sm">
+          
              <%= image_tag anniversary.image, class:"img-fluid"%>
             <div class="card-body">
               <p class="card-text"><%= "#{anniversary.anniversary_date} | #{anniversary.anniversary_name}" %></p>

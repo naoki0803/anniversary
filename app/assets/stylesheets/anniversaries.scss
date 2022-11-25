@@ -6,9 +6,13 @@
 
 html{
   width: 100%;
+  height: 100vh;
   font-size: 100%;
 }
 
+.google-font{
+  font-family: 'Libre Baskerville', serif;
+}
 /*----------------------------------------
   header
 ----------------------------------------*/
@@ -82,30 +86,30 @@ html{
 ----------------------------------------*/
 .new-wrapper{
   background-color: #ecebeb;
-  display: flex;
-  justify-content: center;    /* 左右 */
-  align-items: center;        /* 上下 */
-  width: 100%;
-  height: calc(100vh - 60px - 60px);
-  padding: 0 100px;
+  // display: flex;
+  // justify-content: center;    /* 左右 */
+  // align-items: center;        /* 上下 */
+  // width: 100%;
+  height: calc(100vh - 70px - 60px);
+  // padding: 0 100px;
 }
 
-.new-left{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;    /* 左右 */
-  align-items: center;        /* 上下 */
-}
+// .new-left{
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+//   justify-content: center;    /* 左右 */
+//   align-items: center;        /* 上下 */
+// }
 
-.new-right{
-  display: flex;
-  justify-content: center;    /* 左右 */
-  align-items: center;        /* 上下 */
-  width: 100%;
-  height: 100%;
-  // text-align: center;
-}
+// .new-right{
+//   display: flex;
+//   justify-content: center;    /* 左右 */
+//   align-items: center;        /* 上下 */
+//   width: 100%;
+//   height: 100%;
+//   // text-align: center;
+// }
 
 .input-birth-wrap {
   display: flex;
@@ -113,104 +117,106 @@ html{
 
 }
 
-.frame{
-  border-top: 10px solid #B37D4D;    /* 上のborderを指定 */
-  border-right: 10px solid #B37D4D;  /* 右のborderを指定 */
-  border-bottom: 10px solid #D2AE7E; /* 下のborderを指定 */
-  border-left: 10px solid #D2AE7E;   /* 左のborderを指定 */
-  box-shadow: 5px 7px 3px 4px rgba(84, 84, 90, 0.2);
-  // box-shadow: inset 0 0 300px #000;   /* 内側に影を指定 */
-  display: inline-block;             /* 写真に合わせるためインラインブロック要素にする */
-}
+// .frame{
+//   border-top: 10px solid #B37D4D;    /* 上のborderを指定 */
+//   border-right: 10px solid #B37D4D;  /* 右のborderを指定 */
+//   border-bottom: 10px solid #D2AE7E; /* 下のborderを指定 */
+//   border-left: 10px solid #D2AE7E;   /* 左のborderを指定 */
+//   box-shadow: 5px 7px 3px 4px rgba(84, 84, 90, 0.2);
+//   // box-shadow: inset 0 0 300px #000;   /* 内側に影を指定 */
+//   display: inline-block;             /* 写真に合わせるためインラインブロック要素にする */
+// }
 
-.frame img {
-  position: relative; /* z-indexを指定 */
-  z-index: -1;        /* 影を写真の上に重ねるためマイナス値を指定 */
-}
+// .frame img {
+//   position: relative; /* z-indexを指定 */
+//   z-index: -1;        /* 影を写真の上に重ねるためマイナス値を指定 */
+// }
 
 
 
 
 
 /* Form Layout */
-.form-wrapper {
-  background: #fafafa;
-  margin: 3em auto;
-  padding: 0 1em;
-  max-width: 370px;
-}
 
 
-.form-item {
-  margin-bottom: 0.75em;
-  width: 100%;
-}
+// .form-wrapper {
+//   background: #fafafa;
+//   margin: 3em auto;
+//   padding: 0 1em;
+//   max-width: 370px;
+// }
 
-.form-item input {
-  background: #fafafa;
-  border: none;
-  border-bottom: 2px solid #e9e9e9;
-  color: #666;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1em;
-  height: 50px;
-  transition: border-color 0.3s;
-  width: 100%;
-}
 
-.form-item input:focus {
-  border-bottom: 2px solid #c0c0c0;
-  outline: none;
-}
+// .form-item {
+//   margin-bottom: 0.75em;
+//   width: 100%;
+// }
 
-.button-panel {
-  margin: 2em 0 0;
-  width: 100%;
-}
+// .form-item input {
+//   background: #fafafa;
+//   border: none;
+//   border-bottom: 2px solid #e9e9e9;
+//   color: #666;
+//   font-family: 'Open Sans', sans-serif;
+//   font-size: 1em;
+//   height: 50px;
+//   transition: border-color 0.3s;
+//   width: 100%;
+// }
 
-.button-panel .button {
-  background: #f16272;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  height: 40px;
-  font-size: 1.2em;
-  letter-spacing: 0.05em;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.3s ease-in-out;
-  width: 100%;
-}
+// .form-item input:focus {
+//   border-bottom: 2px solid #c0c0c0;
+//   outline: none;
+// }
 
-.button:hover {
-  background: #ee3e52;
-}
+// .button-panel {
+//   margin: 2em 0 0;
+//   width: 100%;
+// }
 
-.form-footer {
-  font-size: 1em;
-  padding: 2em 0;
-  text-align: center;
-}
+// .button-panel .button {
+//   background: #f16272;
+//   border: none;
+//   color: #fff;
+//   cursor: pointer;
+//   height: 40px;
+//   font-size: 1.2em;
+//   letter-spacing: 0.05em;
+//   text-align: center;
+//   text-transform: uppercase;
+//   transition: 0.3s ease-in-out;
+//   width: 100%;
+// }
 
-.form-footer a {
-  color: #8c8c8c;
-  text-decoration: none;
-  transition: border-color 0.3s;
-}
+// .button:hover {
+//   background: #ee3e52;
+// }
 
-.form-footer a:hover {
-  border-bottom: 1px dotted #8c8c8c;
-}
+// .form-footer {
+//   font-size: 1em;
+//   padding: 2em 0;
+//   text-align: center;
+// }
+
+// .form-footer a {
+//   color: #8c8c8c;
+//   text-decoration: none;
+//   transition: border-color 0.3s;
+// }
+
+// .form-footer a:hover {
+//   border-bottom: 1px dotted #8c8c8c;
+// }
 
 
 /*----------------------------------------
   Session New
 ----------------------------------------*/
-.form-wrapper{
+// .form-wrapper{
 
-  position: relative;
-  position: absolute;
-}
+//   position: relative;
+//   position: absolute;
+// }
 
 
 /*----------------------------------------

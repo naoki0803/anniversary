@@ -2,70 +2,39 @@
 
 
 
-<div class="new-wrapper">
+<div class="container-fluid new-wrapper ">
   
-  <div class="new-left">
-    <%= image_tag "signin.jpg", class:"frame", width:"90%", height:"60%" %>
-  </div>
+  <div class="row p-5 ">
 
-  <div class="new-right">
-    <div class="form-wrapper">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <h2>Log in</h2>
-        
-        <div class="form-item">
-          <%#= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, placeholder:"Email", autocomplete: "Email", class: "input" %>
-        </div>
+    <div class="col-md-6 col-sm-12">
+      <%= image_tag "signin.jpg", class:"img-fluid" %>
+    </div>
 
-        <div class="form-item">
-          <%#= f.label :password %><br />
-          <%= f.password_field :password, placeholder:"Password", autocomplete: "Password", class: "input" %>
-        </div>
+    <div class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center  my-2">
 
-        <%# if devise_mapping.rememberable? %>
-          <%# <div class="field"> %>
-            <%#= f.check_box :remember_me %>
-            <%#= f.label :remember_me %>
-          <%# </div> %>
-        <%# end %>
+      <div class="wrapper d-flex justify-content-center p-4 google-font">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%# <h2 class="google-font">Log in</h2> %>
 
-        <div class="actions button-panel">
-          <%= f.submit "Log in", class:"button input"%>
-        </div>
-      <% end %>
+          <div class="mb-3">
+            <label for="email" class="form-label m-0">Email</label>
+            <%= f.email_field :email, autofocus: true, placeholder:"Email", autocomplete: "Email", class: "form-control", id:"email"%>
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label m-0">Password</label>
+            <%= f.email_field :email, autofocus: true, placeholder:"Password", autocomplete: "Password", class: "form-control", id:"email"%>
+          </div>
+
+          <div class="mb-3">
+            <%= f.submit "Log in", class:"btn btn-outline-dark "%>
+          </div>
+
+        <% end %>
+      </div>
+
     </div>
   </div>
+
 </div>
-
-
-
-
-
-<div class="form-wrapper">
-  <h1>Sign In</h1>
-  <form>
-    <div class="form-item">
-      <label for="email"></label>
-      <input type="email" name="email" required="required" placeholder="Email Address" class="input">
-    </div>
-    <div class="form-item">
-      <label for="password"></label>
-      <input type="password" name="password" required="required" placeholder="Password" class="input"></input>
-    </div>
-    <div class="button-panel">
-      <input type="submit" class="button" title="Sign In" value="Sign In"></input>
-    </div>
-  </form>
-  <div class="form-footer">
-    <p><a href="#">Create an account</a></p>
-    <p><a href="#">Forgot password?</a></p>
-  </div>
-</div>
-
-
-
-
-
-
 <%= render "shared/footer" %>
