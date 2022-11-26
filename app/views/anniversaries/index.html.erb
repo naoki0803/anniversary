@@ -1,23 +1,27 @@
 <%= render "shared/header" %>
 
-<div class="hero-wrapper">
-    <div class="hero-image">
-      <%= image_tag "top.jpg", class:"top-image" %>
-    </div>
-    <div class="hero-message">
-        <h1 class="display-1 text-white" style="font-family: 'Libre Baskerville', serif;">Anniversary</h1>
-        <p class="lead text-light">この世に生まれたあの日から、毎日が特別な記念日<br> 大切な毎日をAnniversaryで</p>
 
-        <% if user_signed_in? %> 
-        <% else %>
-        <p>
-          <%= link_to "Log in", new_user_session_path, class: "btn btn-light" %>
-          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-secondary" %> 
-        </p>
-        <% end %>
+
+
+<div class="container-fluid ">
+  <div class="row">
+    <div class="card col-12 px-0" style="border-radius: 0;">
+      <%= image_tag "top.jpg", class:"img-fluid opacity-75", style:"border-radius: 0; max-height: 650px;" %>
+      <div class="card-img-overlay pt-5 mt-5">
+          <p class="display-1 text-white google-font">Anniversary</p>
+          <p class="lead text-light">この世に生まれたあの日から、毎日が特別な記念日<br> 大切な毎日をAnniversaryで</p>
+
+          <% if user_signed_in? %> 
+          <% else %>
+          <p>
+            <%= link_to "Log in", new_user_session_path, class: "btn btn-light" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-secondary" %> 
+          </p>
+          <% end %>
+      </div>
     </div>
+  </div>
 </div>
-
 
 
 <div class="album py-5 bg-light">

@@ -6,7 +6,7 @@
 
 html{
   width: 100%;
-  height: 100vh;
+  height: 100%;
   font-size: 100%;
 }
 
@@ -57,35 +57,40 @@ html{
 /*----------------------------------------
   index
 ----------------------------------------*/
-.hero-wrapper{
-  width: 100vw;
-  height: calc(100vh - 60px - 60px);
-  position: relative;
-}
+// .hero-wrapper{
+//   width: 100vw;
+//   height: calc(100vh - 50px - 60px);
+//   position: relative;
+// }
 
-.top-image{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0.8;
-}
+// .top-image{
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   opacity: 0.8;
+// }
 
 
-.hero-message{
-  // border: solid 1px white;
-  width: 100%;
-  position: absolute;
+
+.card-img-overlay{
+  top: 500;
   text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
 }
+// .hero-message{
+//   // border: solid 1px white;
+//   width: 100%;
+//   position: absolute;
+//   text-align: center;
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
 
 
 /*----------------------------------------
   SignUp
 ----------------------------------------*/
 .new-wrapper{
-  background-color: #ecebeb;
+  // background-color: #ecebeb;
   // display: flex;
   // justify-content: center;    /* 左右 */
   // align-items: center;        /* 上下 */
@@ -228,6 +233,22 @@ html{
   font-family: 'Libre Baskerville', serif;
 }
 
+
+.contents-backglornd-color{
+  background-color: white;
+  // background-color: rgba(173,182,189, 0.1);
+}
+
+
+
+          // // JSのメニューバーのオープン
+          // ul li{
+          //   cursor: pointer;
+          // }
+
+          // .is-open{
+          //   display: none;
+          // }
 
 // .card-title{
 //   font-size: 1.1rem;
