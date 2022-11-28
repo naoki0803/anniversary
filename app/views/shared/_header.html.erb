@@ -27,12 +27,13 @@
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle header-nav" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Menu
+              <a class="nav-link dropdown-toggle google-font" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= "User Menu (#{current_user.nickname})"%>
+                
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><%= link_to "Create", new_anniversary_path, class:"dropdown-item" %></li>
-                  <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+                  <li><%= link_to "New", new_anniversary_path, class:"dropdown-item" %></li>
+                  <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
               </ul>
             </li>
           </ul>

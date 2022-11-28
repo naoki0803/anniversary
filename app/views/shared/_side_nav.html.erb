@@ -52,10 +52,11 @@
     
     <hr>
 
+    <% if user_signed_in?%>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
         <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong>mdo</strong>
+        <strong><%= current_user.nickname %></strong>
       </a>
       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
         <li><%= link_to "New Anniversary", new_anniversary_path, class:"dropdown-item" %></li>
@@ -65,4 +66,18 @@
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
       </ul>
     </div>
+
+    <% else %>
+    <div class="dropdown">
+      <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+        <strong><%= "Login" %></strong>
+      </a>
+      <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+        <li class=""><%= link_to "Log in", new_user_session_path, class: "dropdown-item" %></li>
+        <li class=""><%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %></li>
+      </ul>
+    </div>
+    <% end %>
+
   </div>
