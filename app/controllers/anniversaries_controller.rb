@@ -7,6 +7,7 @@ class AnniversariesController < ApplicationController
   before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
+
   end
 
   def all
@@ -73,4 +74,5 @@ class AnniversariesController < ApplicationController
       redirect_to root_path
     end
   end
+
 end

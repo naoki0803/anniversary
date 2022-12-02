@@ -10,21 +10,20 @@
       <ul class="nav nav-pills flex-column mb-auto">
         <li>
           <div class="d-flex">
-            <%# <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg> %>
+            <%# <svg class="bi me-2" width="24" height="24"><use xlink:href="#grid"/></svg> %>
             <%= link_to "All Anniversary", all_anniversaries_path, class:"nav-link link-dark ms-1" %> 
           </div>
         </li>
 
         <li>
           <div class="d-flex">
-            <%# <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg> %>
+            <%# <svg class="bi me-2" width="24" height="24"><use xlink:href="#grid"/></svg> %>
             <%= link_to "My Anniversary", user_path(current_user.id), class:"nav-link link-dark ms-1" %> 
           </div>
         </li>
 
         <li>
           <div class="d-flex">
-            <%# <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg> %>
             <%= link_to "My List", user_lists_path(current_user.id), class:"nav-link link-dark ms-1" %> 
           </div>
         </li>
@@ -41,7 +40,7 @@
       <ul class="nav nav-pills flex-column mb-auto">
         <li>
           <div class="d-flex">
-            <%# <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg> %>
+            <%# <svg class="bi me-2" width="24" height="24"><use xlink:href="#grid"/></svg> %>
             <%= link_to "All Anniversary", all_anniversaries_path, class:"nav-link link-dark ms-1" %> 
           </div>
         </li>              
@@ -55,7 +54,10 @@
     <% if user_signed_in?%>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-dash mx-2" viewBox="0 0 16 16">
+          <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+          <path fill-rule="evenodd" d="M11 7.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
+        </svg>
         <strong><%= current_user.nickname %></strong>
       </a>
       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
@@ -70,7 +72,10 @@
     <% else %>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-dash mx-2" viewBox="0 0 16 16">
+          <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+          <path fill-rule="evenodd" d="M11 7.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
+        </svg>
         <strong><%= "Login" %></strong>
       </a>
       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
