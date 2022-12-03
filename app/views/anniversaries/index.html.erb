@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 
-<div class="container-fluid px-0 w-100 h-75">
+<div class="container-fluid px-0 w-100 hero-height">
   <div class="hero-wrapper vw-100 h-100 relative">
      <%= image_tag "top.jpg", class:"hero-image opacity-75 vw-100 h-100 bg-Success "%>
 
@@ -22,34 +22,7 @@
 </div>
 
 
-
-
-<div class="album py-5">
-  <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-      <% @anniversaries.each do |anniversary| %>
-        <div class="col">
-          <div class="card shadow-sm">
-          
-             <%= image_tag anniversary.image, class:"img-fluid"%>
-            <div class="card-body">
-              <p class="card-text"><%= "#{anniversary.anniversary_date} | #{anniversary.anniversary_name}" %></p>
-
-              <p class="card-text"><%= anniversary.anniversary_description %></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "View", anniversary_path(anniversary.id) %></button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+<%#= render "shared/album" %>
 
 
 <%= render "shared/footer" %>

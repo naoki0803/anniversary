@@ -6,10 +6,12 @@
     </div>
 
     <div class="col-10">
-      <%= render "shared/album" %>
+      <% if @anniversaries == [] %>
+        <p class="google-font p-3">検索結果がありません</p>
+      <% else %>
+        <%= render "shared/album" %>
+      <% end %>  
     </div>
     
   </div>
 </div>
-
-

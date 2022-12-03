@@ -1,13 +1,12 @@
 class AnniversariesController < ApplicationController
   require 'date'
 
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :all, :search]
   before_action :all_item, only: [:index, :all]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_index, only: [:edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :update, :destroy], except: [:index, :all, :search]
 
   def index
-
   end
 
   def all
@@ -54,6 +53,10 @@ class AnniversariesController < ApplicationController
   def destroy
     @anniversary.destroy
     redirect_to user_path(current_user.id)
+  end
+
+  def search
+    @anniversaries = Anniversary.search(params[:keyword]).order("created_at DESC")
   end
 
   private

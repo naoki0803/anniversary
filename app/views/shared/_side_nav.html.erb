@@ -1,10 +1,17 @@
-  <div class="d-flex flex-column flex-shrink-0 p-3 bg-light vh-100 overflow-hidden">
+  <div class="d-flex flex-column flex-shrink-0 p-3 bg-light vh-100 overflow-hidden side-nav-width">
     
     <div>
       <a href="/" class="link-dark text-decoration-none fs-4 side-nav-logo ms-3">Anniversary</a>
     </div>
     
     <hr>
+
+    <div>
+      <%= form_with url: search_anniversaries_path, method: :get, class:"d-flex ps-2 mb-4", local: true do |f| %>
+        <%= f.text_field :keyword, class:"form-control form-control-sm me-1", placeholder:"Search"%>
+        <%= f.submit "検索", class:"btn btn-outline-secondary btn-sm"%> 
+      <% end %>
+    </div>
 
     <% if user_signed_in? %>  
       <ul class="nav nav-pills flex-column mb-auto">
@@ -48,7 +55,7 @@
 
       
     <% end %> 
-    
+
     <hr>
 
     <% if user_signed_in?%>

@@ -20,6 +20,17 @@ body{
 }
 
 
+.header-height{
+  height: 8%;
+}
+
+.hero-height{
+  height: 84%;
+}
+
+.footer-height{
+  height: 8%;
+}
 
 /*----------------------------------------
   header
@@ -41,7 +52,7 @@ body{
   font-family: 'Libre Baskerville', serif;
   text-decoration: none; 
   color: #24292e;
-  font-size: 38px;
+  font-size: 32px;
 }
 
 .logo a:hover{
@@ -266,6 +277,9 @@ body{
   font-family: 'Libre Baskerville', serif;
 }
 
+.side-nav-width{
+  min-width: 200px;
+}
 
 .contents-backglornd-color{
   background-color: white;
