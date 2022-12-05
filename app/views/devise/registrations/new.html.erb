@@ -1,65 +1,58 @@
 <%= render "shared/header" %>
 
-<div class="new-wrapper">
+
+<div class="container new-wrapper d-flex align-items-center justify-content-center overflow-scroll">
   
-  <div class="new-left">
-    <%= image_tag "signup.jpg", class:"frame", width:"90%", height:"60%" %>
+  <div class="row">
+
+    <div class="col-sm-12 col-md-6">
+      <%= image_tag "signup.jpg", class:"img-fluid shadow rounded"%>
+    </div>
+
+    <div class="col-sm-12 col-md-6 d-flex align-items-center justify-content-center  my-2">
+
+      <div class="wrapper d-flex justify-content-center p-4 google-font">
+        <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+          
+          <%= render partial:'shared/error_messages', locals: { model: f.object } %>
+
+          <div class="mb-3">
+            <%= f.label :email, class:"form-label m-0"%>
+            <%= f.email_field :email, autofocus: true, placeholder:"Email", autocomplete: "Email", class: "form-control"%>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :password, class:"form-label m-0" %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :password_confirmation, class:"form-label m-0" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"  %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :nickname, class:"form-label m-0" %>
+            <%= f.text_field :nickname, autocomplete: "nickname", class: "form-control"  %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :birth_date, class:"form-label m-0" %>
+            <%= f.date_field :birth_date, class:"form-control"%>
+          </div>
+
+          <div class="mb-3">
+            <%= f.submit "Sign up", class:"btn btn-outline-dark " %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 
-  <div class="new-right">
-    
-    <%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
-      <%#= render "devise/shared/error_messages", resource: resource %>
-      <%= render partial:'shared/error_messages', locals: { model: f.object } %>
-      
-      <h2>Sign up</h2>
-      
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :nickname %><br />
-        <%= f.text_field :nickname, autocomplete: "nickname" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :birth_date %><br />
-        <div class='input-birth-wrap'>
-          <%= raw sprintf(
-                      f.date_select(
-                        :birth_date,
-                        class:'select-birth',
-                        id:"birth-date",
-                        use_month_numbers: true,
-                        prompt:'--',
-                        start_year: 1930,
-                        end_year: (Time.now.year - 5),
-                        date_separator: '%s'),
-                      "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
-        </div>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Sign up" %>
-      </div>
-    <% end %>
-  </div>
 </div>
 
 <%= render "shared/footer" %>
