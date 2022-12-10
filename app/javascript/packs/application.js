@@ -9,6 +9,7 @@ require("channels")
 
 // require('jquery')
 // require("test.js")
+require('../preview')
 
 import 'bootstrap'
 import '../stylesheets/application'

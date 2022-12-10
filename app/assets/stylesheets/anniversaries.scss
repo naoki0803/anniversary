@@ -35,19 +35,6 @@ body{
 /*----------------------------------------
   header
 ----------------------------------------*/
-// .header-wrapper{
-//   height: 60px;
-//   padding: 0 80px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-// }
-
-// .header-wrapper h1{
-//   margin-bottom: 0;
-// }
-
-
 .logo a{
   font-family: 'Libre Baskerville', serif;
   text-decoration: none; 
@@ -78,31 +65,16 @@ body{
   index
 ----------------------------------------*/
 .hero-wrapper{
-  // width: 100%;
-  // height: 100%;
   position: relative;
 }
 
-// .top-image{
-//   position: absolute;
-//   width: 100%;
-//   height: 100%;
-//   opacity: 0.8;
-// }
-
-
 .hero-image{
-  // height: 100%;
-  // width: 100%;
-
   object-fit: cover;
   position: absolute;
 }
 
 .hero-text{
   position: relative;
-  // top: 50%;
-  // transform: translateY(-50%);
 }
 
 .relative{
@@ -111,168 +83,43 @@ body{
 
 .absolute{
   position: absolute;
-
 }
 
+/*----------------------------------------
+  New Post
+----------------------------------------*/
 
 
+.preview-image{
+  width: 500px;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  
+}
 
-
-
-
-// .hero-message{
-//   // border: solid 1px white;
-//   width: 100%;
-//   position: absolute;
-//   text-align: center;
-//   top: 50%;
-//   transform: translateY(-50%);
-// }
 
 
 /*----------------------------------------
   SignUp
 ----------------------------------------*/
 .new-wrapper{
-  // background-color: #ecebeb;
-  // display: flex;
-  // justify-content: center;    /* 左右 */
-  // align-items: center;        /* 上下 */
-  // width: 100%;
   height: calc(100vh - 70px - 60px);
-  // padding: 0 100px;
 }
-
-// .new-left{
-//   width: 100%;
-//   height: 100%;
-//   display: flex;
-//   justify-content: center;    /* 左右 */
-//   align-items: center;        /* 上下 */
-// }
-
-// .new-right{
-//   display: flex;
-//   justify-content: center;    /* 左右 */
-//   align-items: center;        /* 上下 */
-//   width: 100%;
-//   height: 100%;
-//   // text-align: center;
-// }
 
 .input-birth-wrap {
   display: flex;
-  // justify-content: center;    /* 左右 */
-
 }
-
-// .frame{
-//   border-top: 10px solid #B37D4D;    /* 上のborderを指定 */
-//   border-right: 10px solid #B37D4D;  /* 右のborderを指定 */
-//   border-bottom: 10px solid #D2AE7E; /* 下のborderを指定 */
-//   border-left: 10px solid #D2AE7E;   /* 左のborderを指定 */
-//   box-shadow: 5px 7px 3px 4px rgba(84, 84, 90, 0.2);
-//   // box-shadow: inset 0 0 300px #000;   /* 内側に影を指定 */
-//   display: inline-block;             /* 写真に合わせるためインラインブロック要素にする */
-// }
-
-// .frame img {
-//   position: relative; /* z-indexを指定 */
-//   z-index: -1;        /* 影を写真の上に重ねるためマイナス値を指定 */
-// }
-
-
-
-
-
-/* Form Layout */
-
-
-// .form-wrapper {
-//   background: #fafafa;
-//   margin: 3em auto;
-//   padding: 0 1em;
-//   max-width: 370px;
-// }
-
-
-// .form-item {
-//   margin-bottom: 0.75em;
-//   width: 100%;
-// }
-
-// .form-item input {
-//   background: #fafafa;
-//   border: none;
-//   border-bottom: 2px solid #e9e9e9;
-//   color: #666;
-//   font-family: 'Open Sans', sans-serif;
-//   font-size: 1em;
-//   height: 50px;
-//   transition: border-color 0.3s;
-//   width: 100%;
-// }
-
-// .form-item input:focus {
-//   border-bottom: 2px solid #c0c0c0;
-//   outline: none;
-// }
-
-// .button-panel {
-//   margin: 2em 0 0;
-//   width: 100%;
-// }
-
-// .button-panel .button {
-//   background: #f16272;
-//   border: none;
-//   color: #fff;
-//   cursor: pointer;
-//   height: 40px;
-//   font-size: 1.2em;
-//   letter-spacing: 0.05em;
-//   text-align: center;
-//   text-transform: uppercase;
-//   transition: 0.3s ease-in-out;
-//   width: 100%;
-// }
-
-// .button:hover {
-//   background: #ee3e52;
-// }
-
-// .form-footer {
-//   font-size: 1em;
-//   padding: 2em 0;
-//   text-align: center;
-// }
-
-// .form-footer a {
-//   color: #8c8c8c;
-//   text-decoration: none;
-//   transition: border-color 0.3s;
-// }
-
-// .form-footer a:hover {
-//   border-bottom: 1px dotted #8c8c8c;
-// }
 
 
 /*----------------------------------------
   Session New
 ----------------------------------------*/
-// .form-wrapper{
-
-//   position: relative;
-//   position: absolute;
-// }
 
 
 /*----------------------------------------
    contents /  content
 ----------------------------------------*/
-
-
 .side-nav-logo{
   font-family: 'Libre Baskerville', serif;
 }
@@ -283,10 +130,7 @@ body{
 
 .contents-backglornd-color{
   background-color: white;
-  // background-color: rgba(173,182,189, 0.1);
 }
-
-
 
 // dropdownが所属するブロック要素
 .zindex{
@@ -297,63 +141,6 @@ body{
 .container{
   z-index: 1;
 }
-
-          // // JSのメニューバーのオープン
-          // ul li{
-          //   cursor: pointer;
-          // }
-
-          // .is-open{
-          //   display: none;
-          // }
-
-// .card-title{
-//   font-size: 1.1rem;
-// }
-
-
-// .card-footer-bottom,.card-footer-top {
-//   font-size: 0.8rem;
-// }
-
-
-
-tr th {
-  font-size: 0.9rem;
-  text-align: center;
-  font-weight: 600;
-}
-
-
-tbody tr {
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-// .card-title a{
-//   text-decoration: none;
-//   color: #24292e;
-
-// }
-
-// .card-title a:hover{
-//   text-decoration: none;
-//   color: #24292e;
-//   opacity: 0.6;
-//   transition: 0.4s;
-//   position: relative;
-// }
-
-// .wrapper {
-//   width: 100%; height: 440px;
-
-
-// }
-
-// .wrapper :hover{
-//   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .2);
-//   transition: 0.3s;
-// }
 
 /*----------------------------------------
   Likeボタン
@@ -371,4 +158,20 @@ tbody tr {
 .unlike-btn {
   font-size: 1em;
   color: #e54747;
+}
+
+/*----------------------------------------
+  List
+----------------------------------------*/
+
+tr th {
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+
+tbody tr {
+  font-size: 0.9rem;
+  text-align: center;
 }
