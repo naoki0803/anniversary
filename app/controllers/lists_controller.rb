@@ -3,8 +3,11 @@ class ListsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @anniversaries = @user.anniversaries
+    @anniversaries = @user.anniversaries.order("anniversary_date ASC")
     @today = Date.current
-    # @latest_anniversary =  @user.anniversaries.order(created_at: :desc).limit(1) . 対象ユーザーの全てのanniversaryかｒ麻維新の1件を取得して@latest_anniversaryに代入
+    @anniversary_lists = [100,200,300,400,500,1000,3000,5000]
+
+
+
   end
 end
