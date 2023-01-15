@@ -8,4 +8,4 @@ ja:
         image: 画像
         anniversary_name: 記念日名
         anniversary_date: 記念日
-        category: カテゴリー
+        category_id: カテゴリー
