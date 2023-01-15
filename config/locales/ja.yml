@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        birth_date: 誕生日
+      anniversary:
+        image: 画像
+        anniversary_name: 記念日名
+        anniversary_date: 記念日
+        category: カテゴリー

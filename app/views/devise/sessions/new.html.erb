@@ -13,7 +13,11 @@
 
       <div class="wrapper d-flex justify-content-center p-4 google-font">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <%# <h2 class="google-font">Log in</h2> %>
+          
+          <div class='login-flash-message'>
+            <%= flash[:notice] %>
+            <%= flash[:alert] %>
+          </div>
 
           <div class="mb-3">
             <label for="email" class="form-label m-0">Email</label>
