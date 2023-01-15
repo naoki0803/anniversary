@@ -8,8 +8,10 @@ class Anniversary < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
 
-  validates :category_id, numericality: { other_than: 1 } 
-  validates :anniversary_date,       presence: true
+  validates :image,                 presence: true
+  validates :anniversary_name,      presence: true
+  validates :anniversary_date,      presence: true
+  validates :category_id,           numericality: { other_than: 1 , message: "を選択してください"}
 
 
   def self.search(search)
