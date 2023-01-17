@@ -7,7 +7,14 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates :password, format: { with: VALID_PASSWORD_REGEX }
   validates :nickname,         presence: true
+  validate :cannot_future
 
+  # 生年月日の未来日のチェックメソッド
+  def cannot_future
+    if birth_date.present? && birth_date > Date.today
+      errors.add(:birth_date, "は今日以前で入力してください")
+    end
+  end
 
   has_many :anniversaries
   has_many :comments
