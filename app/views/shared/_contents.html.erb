@@ -2,7 +2,7 @@
 
   <%# カード本体 %>
   
-    <div class="container my-3 m-auto w-75 border overflow-scroll" >
+    <div class="container my-3 m-auto w-75 border overflow-scroll" style="height: 500px;">
       <%# カードヘッダー %>
       <div class="row" style="height: 10%;">
 
@@ -14,7 +14,7 @@
           </div>
 
           <% if user_signed_in? && current_user.id == anniversary.user_id%>
-            <div class="dropdown">
+            <div class="zindex dropdown">
               <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                 <strong><%= anniversary.user.nickname %></strong>
               </a>
@@ -25,7 +25,7 @@
               </ul>
             </div>
           <% else user_signed_in?%>
-            <div class="dropdown">
+            <div class="zindex dropdown">
               <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                 <strong><%= anniversary.user.nickname %></strong>
               </a>
