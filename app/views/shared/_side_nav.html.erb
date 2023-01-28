@@ -1,4 +1,4 @@
-  <div class="d-flex flex-column flex-shrink-0 p-3 bg-light vh-100 overflow-hidden side-nav-width">
+  <div class="d-inline-flex justify-content-around flex-lg-column flex-shrink-0 p-3 bg-light  side-nav-width" id="side-nav">
     
     <div>
       <a href="/" class="link-dark text-decoration-none fs-4 side-nav-logo ms-3">Anniversary</a>
@@ -6,54 +6,89 @@
     
     <hr>
 
-    <div>
-      <%= form_with url: search_anniversaries_path, method: :get, class:"d-flex ps-2 mb-4", local: true do |f| %>
-        <%= f.text_field :keyword, class:"form-control form-control-sm me-1", placeholder:"Search"%>
-        <%= f.submit "検索", class:"btn btn-outline-secondary btn-sm"%> 
-      <% end %>
-    </div>
+
 
     <% if user_signed_in? %>  
       <ul class="nav nav-pills flex-column mb-auto">
-        <li>
-          <div class="d-flex">
 
-            <%= link_to "All Anniversary", all_anniversaries_path, class:"nav-link link-dark ms-1" %> 
-          </div>
+        <li class="my-3">
+          <%= form_with url: search_anniversaries_path, method: :get, class:"d-flex ps-2", local: true do |f| %>
+            <%= f.text_field :keyword, class:"form-control form-control-sm me-1", placeholder:"Search"%>
+            <%= f.submit "検索", class:"btn btn-outline-secondary btn-sm"%> 
+          <% end %>
         </li>
 
-        <li>
+        <%= link_to all_anniversaries_path, class:"link-dark" do%>
+        <li class="d-flex align-items-center px-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-grid-3x3-gap" viewBox="0 0 16 16">
+            <path d="M4 2v2H2V2h2zm1 12v-2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm5 10v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zM9 2v2H7V2h2zm5 0v2h-2V2h2zM4 7v2H2V7h2zm5 0v2H7V7h2zm5 0h-2v2h2V7zM4 12v2H2v-2h2zm5 0v2H7v-2h2zm5 0v2h-2v-2h2zM12 1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zm-1 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zm1 4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2z"/>
+          </svg>
           <div class="d-flex">
-
-            <%= link_to "My Anniversary", user_path(current_user.id), class:"nav-link link-dark ms-1" %> 
+            <%= link_to "All", all_anniversaries_path, class:"nav-link link-dark" %> 
           </div>
         </li>
-
-        <li>
+        <%end%>
+        
+        <%= link_to user_path(current_user.id), class:"link-dark" do%>
+        <li class="d-flex align-items-center px-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+          </svg>
           <div class="d-flex">
-            <%= link_to "My List", user_lists_path(current_user.id), class:"nav-link link-dark ms-1" %> 
+            <%= link_to "Home", user_path(current_user.id), class:"nav-link link-dark" %> 
           </div>
         </li>
-
-        <li>
+        <%end%>
+        
+        <%= link_to user_lists_path(current_user.id), class:"link-dark" do%>
+        <li class="d-flex align-items-center px-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
+            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+            <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+          </svg>
           <div class="d-flex">
-            <%= link_to "My Follow", "#", class:"nav-link link-dark ms-1" %> 
+            <%= link_to "List", user_lists_path(current_user.id), class:"nav-link link-dark" %> 
           </div>
         </li>
+        <%end%>
+
+        <%= link_to "#", class:"link-dark" do%>
+        <li class="d-flex align-items-center px-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-file-earmark-person" viewBox="0 0 16 16">
+            <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5v2z"/>
+          </svg>
+          <div class="d-flex">
+            <%= link_to "Follow", "#", class:"nav-link link-dark" %> 
+          </div>
+        </li>
+        <%end%>
               
       </ul>
 
     <% else %> 
+    
       <ul class="nav nav-pills flex-column mb-auto">
-        <li>
-          <div class="d-flex">
+        <li class="my-3">
+          <%= form_with url: search_anniversaries_path, method: :get, class:"d-flex ps-2", local: true do |f| %>
+            <%= f.text_field :keyword, class:"form-control form-control-sm me-1", placeholder:"Search"%>
+            <%= f.submit "検索", class:"btn btn-outline-secondary btn-sm"%> 
+          <% end %>
+        </li>
 
-            <%= link_to "All Anniversary", all_anniversaries_path, class:"nav-link link-dark ms-1" %> 
+        <%= link_to all_anniversaries_path, class:"link-dark" do%>
+        <li class="d-flex align-items-center px-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-grid-3x3-gap" viewBox="0 0 16 16">
+            <path d="M4 2v2H2V2h2zm1 12v-2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm5 10v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zM9 2v2H7V2h2zm5 0v2h-2V2h2zM4 7v2H2V7h2zm5 0v2H7V7h2zm5 0h-2v2h2V7zM4 12v2H2v-2h2zm5 0v2H7v-2h2zm5 0v2h-2v-2h2zM12 1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zm-1 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zm1 4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2z"/>
+          </svg>
+          <div class="d-flex">
+            <%= link_to "All", all_anniversaries_path, class:"nav-link link-dark" %> 
           </div>
-        </li>              
+        </li>
+        <%end%>            
       </ul>
 
-      
     <% end %> 
 
     <hr>

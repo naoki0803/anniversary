@@ -1,0 +1,104 @@
+<nav class="container-fluid navbar navbar-expand-lg d-inline-flex justify-content-around flex-lg-column flex-shrink-0 p-3 bg-light overflow-hidden side-nav-width" id="side-nav">
+
+  
+    <div>
+      <a href="/" class="link-dark text-decoration-none fs-4 side-nav-logo ms-3">Anniversary</a>
+    </div>
+    
+    <hr>
+
+      <div class="nav-item">
+        <%= form_with url: search_anniversaries_path, method: :get, class:"d-flex ps-2 mb-4", local: true do |f| %>
+          <%= f.text_field :keyword, class:"form-control form-control-sm me-1", placeholder:"Search"%>
+          <%= f.submit "検索", class:"btn btn-outline-secondary btn-sm"%> 
+        <% end %>
+      </div>
+          
+          
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="flex-column collapse navbar-collapse" id="navbarSupportedContent">
+
+
+
+      <% if user_signed_in? %>  
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li>
+            <div class="d-flex nav-item">
+
+              <%= link_to "All Anniversary", all_anniversaries_path, class:"nav-link link-dark ms-1" %> 
+            </div>
+          </li>
+
+          <li>
+            <div class="d-flex nav-item">
+
+              <%= link_to "My Anniversary", user_path(current_user.id), class:"nav-link link-dark ms-1" %> 
+            </div>
+          </li>
+
+          <li>
+            <div class="d-flex nav-item">
+              <%= link_to "My List", user_lists_path(current_user.id), class:"nav-link link-dark ms-1" %> 
+            </div>
+          </li>
+
+          <li>
+            <div class="d-flex nav-item">
+              <%= link_to "My Follow", "#", class:"nav-link link-dark ms-1" %> 
+            </div>
+          </li>
+                
+        </ul>
+
+      <% else %> 
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li>
+            <div class="d-flex nav-item">
+
+              <%= link_to "All Anniversary", all_anniversaries_path, class:"nav-link link-dark ms-1" %> 
+            </div>
+          </li>              
+        </ul>
+      <% end %> 
+
+      <hr>
+
+      <% if user_signed_in?%>
+      <div class="dropdown nav-item">
+        <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-dash mx-2" viewBox="0 0 16 16">
+            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+            <path fill-rule="evenodd" d="M11 7.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+          <strong><%= current_user.nickname %></strong>
+        </a>
+        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+          <li><%= link_to "New Anniversary", new_anniversary_path, class:"dropdown-item" %></li>
+          <li><a class="dropdown-item" href="#">Settings</a></li>
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+        </ul>
+      </div>
+
+      <% else %>
+      <div class="dropdown nav-item">
+        <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-dash mx-2" viewBox="0 0 16 16">
+            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+            <path fill-rule="evenodd" d="M11 7.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+          <strong><%= "Login" %></strong>
+        </a>
+        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+          <li class=""><%= link_to "Log in", new_user_session_path, class: "dropdown-item" %></li>
+          <li class=""><%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %></li>
+        </ul>
+      </div>
+      <% end %>
+    </div>
+
+</nav>
