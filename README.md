@@ -7,7 +7,8 @@
 ・ 記念日の管理機能 (経過日数 / あと何日 / 通知)
 
 # URL
-	http://post-anniversary.com
+	~~http://post-anniversary.com~~
+  http://43.207.47.122/
 
 # テスト用アカウント
 ID：123@abc.com<br>
