@@ -8,7 +8,7 @@
 
 # URL
 	~~http://post-anniversary.com~~
-  http://43.207.47.122/
+  http://3.115.8.120/
 
 # テスト用アカウント
 ID：123@abc.com<br>
